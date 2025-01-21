@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            padding: 10px 10px;
+            margin-top: 20px;
+            text-align: center;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .item-1{
+               height: 60px;
+               width: 280px;
+               background-color: aqua;
+               border: 2px solid black;
+
+        }
+        .item-2{
+            height: 296px;
+            width: 260px;
+            border: 2px solid black;
+            background:linear-gradient(red,green,orange);
+            padding: 10px;
+         /*  using grid property */
+            display: grid;
+            grid-template-columns:auto auto auto auto;
+            padding: 10px;
+
+        }
+        button{
+            height: 50px;
+            width: 60px;
+            border: 2px solid;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 500px;
+            color: white;
+            background-color: black;
+                        }
+    .operator{
+        color: white;
+        background-color: green;
+        
+    }
+    .inp{
+    height: 59px;
+    width: 274px;
+    background-color: aqua;
+    border: 2px solid black;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="container">
+        <div class="item-1">
+            <input class="inp" id="screenoutput" type="text">
+        </div>
+        <div class="item-2">
+         <button onclick="display('^')" class="box operator">^</button>
+         <button onclick="clearScr()" class="box operator">AC</button>
+         <button onclick="del()" class="box operator">del</button>
+         <button onclick="display('/')" class="box operator">/</button>
+         <button onclick="display('1')" class="box">1</button>
+         <button onclick="display('2')" class="box">2</button>
+         <button onclick="display('3')" class="box">3</button>
+         <button onclick="display('+')" class="box operator">+</button>
+         <button onclick="display('4')" class="box">4</button>
+         <button onclick="display('5')" class="box">5</button>
+         <button onclick="display('6')" class="box">6</button>
+         <button onclick="display('-')" class="box operator">-</button>
+         <button onclick="display('7')" class="box">7</button>
+         <button onclick="display('8')" class="box">8</button>
+         <button onclick="display('9')" class="box">9</button>
+         <button onclick="display('*')" class="box operator"><i class="fa fa-multiply"></i></button>
+         <button onclick="display('0')" class="box">0</button>
+         <button onclick="display('.' )" class="box">.</button>
+         <button onclick="display('00')" class="box">00</button>
+         <button onclick="calculator()" class="box operator">=</button>
+        </div>
+    </div>
+    <script>
+    function display(n){
+        document.getElementById("screenoutput").value +=n
+    } 
+   function calculator(){
+    let output= document.getElementById("screenoutput").value;
+    let result = eval(output)
+    document.getElementById("screenoutput").value =result;
+   }
+   function clearScr(){
+    document.getElementById("screenoutput").value ="";
+   }
+   function del(){
+    let digit=document.getElementById("screenoutput").value;
+    document.getElementById("screenoutput").value=digit.slice(0,digit.length -1);
+
+
+   }
+    </script>
+</body>
+
+</html>
